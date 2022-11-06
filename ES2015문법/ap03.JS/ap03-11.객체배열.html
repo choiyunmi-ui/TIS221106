@@ -117,17 +117,40 @@
     { text: 'Three', value: 'C' }
   ];
 
-// objarray 에 { text: 'Four', value: 'D' } 를 추가하시오.
-// length 프로퍼티를 사용하여 추가.
+  // objarray 에 { text: 'Four', value: 'D' } 를 추가하시오.
+  // length 프로퍼티를 사용하여 추가.
+  objarray.push({ text: 'Four', value: 'D' });
+  objarray[objarray.length] = { text: 'Four', value: 'D' };
+  console.log(objarray);
 
 
-// objarray 에서 filter 메서드를 사용하여
-// text의 값이 'One' 인 객체들을 찾아서 console.log 로 출력하시오
+  // objarray 에서 filter 메서드를 사용하여
+  // text의 값이 'One' 인 객체들을 찾아서 console.log 로 출력하시오
+  const arrFilter = objarray.filter((item, index, array) => {
+    if (item.text === 'One')
+      return true;
+    else
+      return false;
+  })
+  console.log(arrFilter); // [{ text: 'One', value: 'A' }]
 
+  // objarray 에서 filter 메서드를 사용하여 { text: 'Three', value: 'C' } 를 삭제하시오.
+  const arrRemove = objarray.filter((item, index, array) => {
+    if (item.text === 'Three' && item.value === 'C')
+      return false;
+    else
+      return true;
+  });
+  console.log(arrRemove); // [ ]
 
-// objarray 에서 filter 메서드를 사용하여 { text: 'Three', value: 'C' } 를 삭제하시오.
-
-// objarray 에서 filter 메서드를 사용하여 text가 'One' 객체들을 찾으시오
+  // objarray 에서 filter 메서드를 사용하여 text가 'One' 객체들을 찾으시오
+  const arrFilterOne = objarray.filter((item, index, array) => {
+    if (item.text === 'One')
+      return true;
+    else
+      return false;
+  });
+  console.log(arrFilterOne); // [ ]
 
 
 // objarray 에서 map 메서드를 사용하여 no 프로퍼티 추가하시오
