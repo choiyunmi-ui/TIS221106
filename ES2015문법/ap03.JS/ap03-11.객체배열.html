@@ -153,12 +153,18 @@
   console.log(arrFilterOne); // [ ]
 
 
-// objarray 에서 map 메서드를 사용하여 no 프로퍼티 추가하시오
-//   [
-//       { text: 'One', value: 'A', no:0 },
-//       { text: '2', value: '2', no:1  },
-//       { text: 'Four', value: 'D', no:2  },
-//   ]
+  // objarray 에서 map 메서드를 사용하여 no 프로퍼티 추가하시오
+  //   [
+  //       { text: 'One', value: 'A', no: 1 },
+  //       { text: '2', value: '2', no: 1  },
+  //       { text: 'Four', value: 'D', no: 1  },
+  //   ]
+  const newObjarray = objarray.map((item, index, array) => {
+    item.no = index;
+    return item;
+  })
+  console.log(newObjarray); // [ ]
+
 
 // objarray 에서 reduce 메서드를 사용하여
 // 각 요소의 value 프로퍼티 를 합쳐서 하나의 문자열로 만드시오
