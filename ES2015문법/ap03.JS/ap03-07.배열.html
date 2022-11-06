@@ -293,27 +293,34 @@
   arr[arr.length] = "aaa";
   console.log(arr);
 
-// RCUD2S: Update. 배열 요소 수정
-// arr 배열의 첫번째 요소를 "update"로 바꾸고
-// arr 배열을 console.log()를 사용하여 콘솔에 출력하시오
-// 실행결과예시) ["update", 100, "two", "three", undefined, "four", "aaa"]
+  // RCUD2S: Update. 배열 요소 수정
+  // arr 배열의 첫번째 요소를 "update"로 바꾸고
+  // arr 배열을 console.log()를 사용하여 콘솔에 출력하시오
+  // 실행결과예시) ["update", 100, "two", "three", undefined, "four", "aaa"]
+  arr[0] = 'update';
+  console.log(arr);
 
 
+  // RCUD2S: Delete. 배열 요소 삭제
+  // arr 배열에서 "two"를 삭제하고 배열을 콘솔에 출력하시오
+  // 실행결과예시) ["update", 100, "three", undefined, "four", "aaa"]
+  arr.splice(2, 1)
+  console.log(arr);
 
+  // RCUD2S: Search. 배열 검색
+  // var arr = [1,3, 3784, 98, 842, 8230] 에서 100이상인 값만 찾으시오.
+  // 실행결과예시) [3784, 842, 8230]
+  // filter() 메서드를 사용하여
+  const arr2 = [1, 3, 3784, 98, 842, 8230];
+  const arrFilter = arr2.filter((value, index, array) => {
+    if (value >= 100)
+      return true;
+    else
+      return fales;
+  });
+  console.log(arr2); // [1,3, 3784, 98, 842, 8230]
+  console.log(arrFilter); // [3784, 842, 8230]
 
-
-// RCUD2S: Delete. 배열 요소 삭제
-// arr 배열에서 "two"를 삭제하고 배열을 콘솔에 출력하시오
-// 실행결과예시) ["update", 100, "three", undefined, "four", "aaa"]
-
-
-
-
-
-// RCUD2S: Search. 배열 검색
-// var arr = [1,3, 3784, 98, 842, 8230] 에서 100이상인 값만 찾으시오.
-// 실행결과예시) [3784, 842, 8230]
-// filter() 메서드를 사용하여
 
 
 
