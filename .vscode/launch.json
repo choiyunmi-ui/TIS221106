@@ -11,8 +11,8 @@
     {
       "name": "Launch file and start chrome",
       "configurations": [
-        "Execute Current File With nodemon",
         "Execute Current File With NodeJS",
+        "Execute Current File With nodemon",
         "JavaScript: Current File",
         "Launch Chrome"
       ],
@@ -22,7 +22,15 @@
   ],
   "configurations": [
     {
+      "name": "Execute Current File With NodeJS",
+      "type": "node",
+      "request": "launch",
+      "program": "${file}"
+    },
+    {
       // https://krauser085.github.io/nodemon/
+      // https://github.com/remy/nodemon#nodemon
+      // https://code.visualstudio.com/docs/nodejs/nodejs-debugging
       "name": "Execute Current File With nodemon",
       "type": "node",
       "request": "launch",
@@ -31,12 +39,6 @@
       "restart": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
-    },
-    {
-      "name": "Execute Current File With NodeJS",
-      "type": "node",
-      "request": "launch",
-      "program": "${file}"
     },
     {
       "name": "JavaScript: Current File",
