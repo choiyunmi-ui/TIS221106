@@ -3,6 +3,7 @@
 const name = 'world';
 console.log(`Hello ${name}`);
 
+debugger;
 const getMessage = (params) => {
     console.log(`Hello ${params}`);
 };
