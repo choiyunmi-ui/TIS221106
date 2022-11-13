@@ -13,3 +13,8 @@ vue 단축키:
   vueplugin
   vuei
   vuefc
+
+실행중인 서버 중지 : ctrl + c
+
+변수 ==> data     <== v-?? , {{}} , :
+함수 ==> methods  <== v-on , @
