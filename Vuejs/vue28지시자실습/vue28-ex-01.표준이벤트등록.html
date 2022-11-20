@@ -115,14 +115,14 @@
             이미지 위에 마우스를 내리면(mouseout ) ==> ../images/but1.gif , ../images/img_swap_off.png
             이미지 위에 마우스를 올리면(mouseover) ==> ../images/but2.gif , ../images/img_swap_on.png
         </xmp>
-      <img src="img_but1"
+      <img v-bind:src="img_but1"
         id="but1"
-        mouseover="imageover"
-        mouseout="imageout" />
-      <img src="img_swap"
+        v-on:mouseover="imageover"
+        v-on:mouseout="imageout" />
+      <img v-bind:src="img_swap"
         id="img-swap"
-        mouseover="imageover"
-        mouseout="imageout" />
+        v-on:mouseover="imageover"
+        v-on:mouseout="imageout" />
       <hr />
 
       <xmp>
@@ -202,13 +202,15 @@
       /* 인스턴스 안에서 사용되는 변수 등록, 공유 변수 */
       /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
       img_image3: null,
+      img_but1: '../images/but1.gif',
+      img_swap: '../images/img_swap_off.png',
     },
     //template: ``,
     methods: {
       /* 이벤트 핸들러 등록 + 일반 함수 */
       imageclick(e) {
         console.log(e.target);
-        debugger;
+
         // 1. 클릭된 a 태그의 href 값을 가져온다.
         //   ==> event.target.href   # a 태그의 href 속성값
         //   ==> event.target.value  # input 태그의 value 속성값
@@ -222,7 +224,13 @@
         // 3. a 태그의 redirect 기능을 취소하시오.
         e.stopPropagation(); // 버블링 취소
         e.preventDefault(); // 리다이렉트 취소
-      }
+      },
+      imageover(e) {
+        console.log(e.target);
+      },
+      imageout(e) {
+        console.log(e.target);
+      },
     },
     components: {
       /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
