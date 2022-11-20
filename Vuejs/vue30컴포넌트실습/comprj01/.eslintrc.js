@@ -1,3 +1,4 @@
+// 무시
 module.exports = {
   root: true,
   env: {

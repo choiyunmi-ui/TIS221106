@@ -10,10 +10,9 @@ https://www.npmjs.com/
 
 
 vue 단축키:
-  vueplugin
-
-  vuei
-  vuefc
+  vueplugin : .html 파일에서 사용.
+  vuei      : .html 파일에서 사용.
+  vuefc     : .vue 파일에서 사용.
 
 실행중인 서버 중지 : ctrl + c
 

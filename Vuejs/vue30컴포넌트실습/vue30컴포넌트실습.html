@@ -327,6 +327,7 @@
 
 
     step 4-04. 서버 재시작
+    $ npm run serve
 
 
     ##################################
@@ -442,30 +443,8 @@
 
 
     6. 라우팅 설정
-        ~/src/App.vue 에 router-link 추가
+        ~/src/App.vue 에 router-link ( a 태그로 변함)  추가
         ~/src/router/index.js 수정
-
-        step 6-1. ~/src/App.vue 에 router-link 추가
-            페이지 링크 만들기
-            <div id="app">
-                <div id="nav">
-                    <router-link to="/">Home</router-link> |
-                    <router-link to="/about">About</router-link> |
-                    <router-link to="/todo">Todo</router-link>
-                </div>
-                <router-view />
-            </div>
-
-        step 6-2. ~/src/router/index.js 수정
-            url 과 컴포넌트 연결
-            아래 코드 추가
-            {
-                path: '/todo',
-                name: 'Todo',
-                component: () => import('../views/TodoView.vue')
-            }
-
-
 
 
 
