@@ -34,7 +34,6 @@ export default {
       console.log(e.target);
       // this.$data.arr[this.$data.arr.length] = this.$data.arr.length;
       this.$data.arr = [...this.$data.arr, this.$data.arr.length];
-      this.$set(this.$data.arr, this.$data.arr.length, this.$data.arr.length);
     },
   },
   components: {
