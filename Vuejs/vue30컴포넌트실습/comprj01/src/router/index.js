@@ -15,13 +15,15 @@ const routes = [
   },
   {
     path: '/3103',
-    name: '3103',
     component: () => import('../views/Vue3103View.vue'),
   },
   {
     path: '/3104',
-    name: '3104',
     component: () => import('../views/Vue3104View.vue'),
+  },
+  {
+    path: '/3403',
+    component: () => import('../views/Vue3403View.vue'),
   },
 ];
 
