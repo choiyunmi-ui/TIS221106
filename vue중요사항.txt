@@ -29,3 +29,16 @@ vue 단축키:
   v-on   : 함수. methods 에 기술, 축약표현( @ === v-on:)
   v-bind : 변수. 축약표현( : )
   v-model: 변수. 입력 태그(input, textarea, select)
+
+
+vue 프로젝트 만들기
+  1.node 설치. 1번만
+
+  2. @vue/cli  설치 . 위치 무관. 1번만
+    $ npm install --global @vue/cli
+
+  3. vue 프로젝트 생성. 프로젝트를 만들 때 마다
+    $ npx vue create 프로젝트명
+
+  4. node 모듈 재설치. node_modules 폴더가 생성됨
+    $ npm install
