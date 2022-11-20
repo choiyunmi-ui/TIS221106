@@ -163,7 +163,7 @@
 
         </xmp>
       <select id="sel"
-        change="selectchange">
+        v-on:change="selectchange">
         <option value="../images/strawberry.gif">딸기</option>
         <option value="../images/banana.gif">바나나</option>
         <option value="../images/apple.gif"
@@ -171,7 +171,7 @@
       </select>
 
       <img id="img"
-        src="img_select" />
+        v-bind:src="img_select" />
       <hr />
 
       <xmp>
@@ -204,6 +204,8 @@
       img_image3: null,
       img_but1: '../images/but1.gif',
       img_swap: '../images/img_swap_off.png',
+
+      img_select: null,
     },
     //template: ``,
     methods: {
@@ -273,7 +275,13 @@
         // <span style="background-color: red;"
         e.target.style.backgroundColor = "red";
       },
-
+      selectchange(e) {
+        console.log(e.target);
+        console.log(e.target.value); // e.target.value === option[value]
+        const value = e.target.value;
+        debugger;
+        this.$data.img_select = value;
+      }
     },
     components: {
       /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
