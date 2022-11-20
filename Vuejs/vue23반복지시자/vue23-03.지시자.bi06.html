@@ -56,6 +56,14 @@
 
       <button v-on:click='btnAddClick'>추가</button>
 
+      <label for="">이름</label><input type='text'
+        v-model="name">
+      <label for="">전화번호</label><input type='text'
+        v-model="tel">
+      <label for="">주소</label><input type='text'
+        v-model="address">
+
+
       <table id="list"
         class="table-bordered">
         <thead>
@@ -93,16 +101,30 @@
       contacts: [
         { name: "설현", tel: "010-3456-8200", address: "서현" },
         { name: "혜리", tel: "010-3456-8299", address: "서리" },
-      ]
+      ],
+      name: null,
+      tel: null,
+      address: null,
     },
     //template: ``,
     methods: {
       /* 이벤트 핸들러 등록 + 일반 함수 */
       btnAddClick(e) {
         console.log(e.target);
+        debugger;
         // this.$data.contacts.push({ name: '1', tel: '2', address: '3' })
         //         this.$data.contacts[ this.$data.contacts.length] = { name: 'a', tel: 'b', address: 'c' };
-        this.$set( this.$data.contacts, this.$data.contacts.length  , { name: 'a', tel: 'b', address: 'c' } );
+        const contact = {
+          name: this.$data.name,
+          tel: this.$data.tel,
+          address: this.$data.address,
+        };
+        this.$set(this.$data.contacts, this.$data.contacts.length, contact);
+
+        // input 태그에 입력된 값을 지우시오.
+        this.$data.name = null;
+        this.$data.tel = null;
+        this.$data.address = null;
       }
     },
     components: {
