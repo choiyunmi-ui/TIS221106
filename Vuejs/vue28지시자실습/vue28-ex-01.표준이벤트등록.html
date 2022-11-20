@@ -227,9 +227,27 @@
       },
       imageover(e) {
         console.log(e.target);
+        // ../images/but1.gif         ==> ../images/but2.gif
+        // ../images/img_swap_off.png ==>  , ../images/img_swap_on.png
+        const id = e.target.id; // <img id="....">
+        if (id === 'but1') {
+          this.$data.img_but1 = '../images/but2.gif';
+        }
+        else if (id === 'img-swap') {
+          this.$data.img_swap = '../images/img_swap_on.png';
+        }
       },
       imageout(e) {
         console.log(e.target);
+        // ../images/but2.gif         ==> ../images/but1.gif
+        // ../images/img_swap_on.png ==>  , ../images/img_swap_off.png const id = e.target.id; // <img id="....">
+        const id = e.target.id; // <img id="....">
+        if (id === 'but1') {
+          this.$data.img_but1 = '../images/but1.gif';
+        }
+        else if (id === 'img-swap') {
+          this.$data.img_swap = '../images/img_swap_off.png';
+        }
       },
     },
     components: {
