@@ -13,7 +13,7 @@ export default {
     showLog(e) {
       console.log(e.target);
       debugger;
-      this.$emit('show-log', 'abc', 123);
+      this.$emit('show-log', 'abfc', 123);
     },
   },
 };
