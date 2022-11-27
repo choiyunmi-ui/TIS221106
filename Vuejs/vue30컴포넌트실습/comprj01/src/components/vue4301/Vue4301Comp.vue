@@ -1,7 +1,14 @@
 <style scoped></style>
 
 <template>
-  <div>Vue4301Comp</div>
+  <div id="app">
+    <h1>{{ header }}</h1>
+    <h2>{{ welcome }}</h2>
+    <h3>{{ counter }}</h3>
+    <div><input type="checkbox" v-model="callapi" />외부 api 호출</div>
+    <button v-on:click="handlerIncrement">더해줘</button>
+    <button v-on:click="handlerDecrement">빼줘</button>
+  </div>
 </template>
 
 <script>
@@ -13,11 +20,24 @@ export default {
   props: [],
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
-    return {};
+    return {
+      header: 'Vuex 사용 앱',
+      // welcome: 'HELLO WORLD',
+      // counter: 0,
+      callapi: false,
+    };
   },
   //template: ``,
   methods: {
     /* 이벤트 핸들러 등록 + 일반 함수 */
+    handlerIncrement(e) {
+      console.log(e.target);
+      this.$data.counter = this.$data.counter + 1;
+    },
+    handlerDecrement(e) {
+      console.log(e.target);
+      this.$data.counter = this.$data.counter - 1;
+    },
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져옵니다.
       namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.

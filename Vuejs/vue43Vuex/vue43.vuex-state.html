@@ -56,7 +56,7 @@
             </div>
         </template>
 
-    작업1-2. vue 인스턴스 기능 완성. data 프로퍼티 추가. <== 각자
+    작업1-2. 컴포넌트 기능 완성. data 프로퍼티 추가. <== 각자
         {{header}} 에는  "Vuex 사용 앱" 가 나오게
         {{welcome}} 에는 "HELLO WORLD" 가 나오게
         {{counter}} 에는 0 이 나오게
@@ -71,7 +71,7 @@
             };
           },
 
-    작업1-3. vue 인스턴스에 버튼 기능 완성. <== 각자
+    작업1-3. 버튼 기능 완성. <== 각자
         <button v-on:click="handlerIncrement">더해줘</button>
         <button v-on:click="handlerDecrement">빼줘</button>
 
@@ -99,10 +99,11 @@
         babel.config.js  jsconfig.json  node_modules/  package.json  package-lock.json  public/  README.md  src/  vue.config.js
 
         # modules 디렉토리 생성
+        # 기능별로 vuex의 상태를 분리하기 위해서 modules
         $ mkdir -p ./src/store/modules
 
     작업2-2. store 파일 생성
-        $ touch ./src/store/index.js
+        $ touch ./src/store/index.js   # 있을수로 있음.
         $ touch ./src/store/modules/counterStore.js
 
     작업2-3. counterStore.js
@@ -178,7 +179,10 @@
         import router from './router';
         import store from './store';
 
-        createApp(App).use(store).use(router).mount('#app');
+        createApp(App)
+        .use(store) // 있는지 확인
+        .use(router)
+        .mount('#app');
 
 
 
