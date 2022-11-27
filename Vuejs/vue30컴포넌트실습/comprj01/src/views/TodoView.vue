@@ -1,12 +1,37 @@
-<style scoped></style>
+<style scoped>
+body {
+  text-align: center;
+  background-color: #f6f6f8;
+}
+input {
+  border-style: groove;
+  width: 200px;
+}
+button {
+  border-style: groove;
+}
+.shadow {
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
+}
+</style>
 
 <template>
-  <div>TodoView</div>
+  <div id="app">
+    <!-- TodoHeader -->
+    <TodoHeader></TodoHeader>
+
+    <!-- TodoInput -->
+
+    <!-- TodoList -->
+
+    <!-- TodoFooter -->
+  </div>
 </template>
 
 <script>
 // vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
 // import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
+import TodoHeader from "../components/todo/TodoHeader.vue";
 
 export default {
   /* pdtmc^2w */
@@ -31,6 +56,7 @@ export default {
   components: {
     /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
     /* 지역 컴포넌트나 파일 컴포넌트만 등록 한다. 예시) "태그명" : 컴포넌트명 */
+    'TodoHeader': TodoHeader,
   },
   computed: {
     /* 자동처리 + 동기식. 메서드로 작성. return 필수. data 와 공존 불가 */
