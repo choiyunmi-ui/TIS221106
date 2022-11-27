@@ -46,13 +46,11 @@ export default {
     /* 이벤트 핸들러 등록 + 일반 함수 */
     handlerIncrement(e) {
       console.log(e.target);
-      debugger;
       // this.$data.counter = this.$data.counter + 1;
       this.dispatchSet(+1);
     },
     handlerDecrement(e) {
       console.log(e.target);
-      debugger;
       // this.$data.counter = this.$data.counter - 1;
       this.dispatchSet(-1);
     },

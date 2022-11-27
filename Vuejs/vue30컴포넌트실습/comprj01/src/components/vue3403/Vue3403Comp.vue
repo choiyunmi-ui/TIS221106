@@ -12,7 +12,6 @@ export default {
     /* 이벤트 핸들러 등록 + 일반 함수 */
     showLog(e) {
       console.log(e.target);
-      debugger;
       this.$emit('show-log', 'abfc', 123);
     },
   },

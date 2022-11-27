@@ -11,7 +11,6 @@ const store = {
      */
     setCounter(mutations /* 고정 */, payload) {
       const { commit } = mutations;
-      debugger;
       commit('setCounter', payload);
     },
     get(mutations /* 고정 */, payload) {
@@ -29,7 +28,6 @@ const store = {
       state /* 고정 */,
       param /* mutations.commit 호출시 넘겨지는 값 */,
     ) {
-      debugger;
       // state.인자 = param;
       state.counter = state.counter + param;
     },

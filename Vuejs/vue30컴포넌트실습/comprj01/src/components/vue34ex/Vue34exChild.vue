@@ -23,12 +23,10 @@ export default {
   methods: {
     /* 이벤트 핸들러 등록 + 일반 함수 */
     addCounter(e) {
-      debugger;
       console.log(e.target);
       this.$emit('add-counter', +1);
     },
     subCounter(e) {
-      debugger;
       console.log(e.target);
       this.$emit('sub-counter', -1);
     },

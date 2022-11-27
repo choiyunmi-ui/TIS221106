@@ -136,7 +136,6 @@ export default {
   methods: {
     /* 이벤트 핸들러 등록 + 일반 함수 */
     addTodo(e) {
-      debugger;
       console.log(e.target);
       if (
         // this.$data.newTodoItem === null ||

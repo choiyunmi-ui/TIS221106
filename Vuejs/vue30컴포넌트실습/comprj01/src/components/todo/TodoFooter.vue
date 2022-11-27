@@ -35,7 +35,7 @@ export default {
     /* 이벤트 핸들러 등록 + 일반 함수 */
     clearAll(e) {
       console.log(e.target);
-      debugger;
+
       // 이벤트 발생. this.$emit( '이벤트명', 인자);
       this.$emit('clearAll', e);
     },

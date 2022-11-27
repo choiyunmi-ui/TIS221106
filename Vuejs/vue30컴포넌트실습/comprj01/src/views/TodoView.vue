@@ -60,14 +60,10 @@ export default {
   //template: ``,
   methods: {
     /* 이벤트 핸들러 등록 + 일반 함수 */
-    clearAll(e) {
-      debugger;
-      console.log(e.target);
+    clearAll() {
       this.$data.todoItems = [];
     },
     doneToggle(id) {
-      debugger;
-      console.log(id);
       // 불변객체
       // ==> 복제 후 재할당 방식으로 처리
       // ==> 1. map, filter, reduce
@@ -82,14 +78,26 @@ export default {
       this.$data.todoItems = newTodos; // 재할당
     },
     removeTodo(id) {
-      debugger;
-      console.log(id);
+      // 불변객체
+      // ==> 복제 후 재할당 방식으로 처리
+      // ==> 1. map, filter, reduce
+      //     2. spread 연산자: ...
+      //     3. 라이브러리 방식: immer, immutable
+      const newTodos = this.$data.todoItems.filter((item) => {
+        if (item.id === id) {
+          return false;
+        }
+        return true;
+      }); // 복제
+
+      this.$data.todoItems = newTodos; // 재할당
     },
     addTodo(e, newTodoItem) {
       debugger;
       console.log(e.target);
       console.log(newTodoItem);
     },
+
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드니다.
       namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.
