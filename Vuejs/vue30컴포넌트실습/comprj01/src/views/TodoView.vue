@@ -61,7 +61,8 @@ export default {
   methods: {
     /* 이벤트 핸들러 등록 + 일반 함수 */
     clearAll() {
-      this.$data.todoItems = [];
+      // this.$data.todoItems = [];
+      dispatchClearAll();
     },
     doneToggle(id) {
       // 불변객체
@@ -69,13 +70,14 @@ export default {
       // ==> 1. map, filter, reduce
       //     2. spread 연산자: ...
       //     3. 라이브러리 방식: immer, immutable
-      const newTodos = this.$data.todoItems.map((item /* , index, array */) => {
-        if (item.id === id) {
-          item.done = !item.done;
-        }
-        return item;
-      }); // 복제
-      this.$data.todoItems = newTodos; // 재할당
+      // const newTodos = this.$data.todoItems.map((item /* , index, array */) => {
+      //   if (item.id === id) {
+      //     item.done = !item.done;
+      //   }
+      //   return item;
+      // }); // 복제
+      // this.$data.todoItems = newTodos; // 재할당
+      dispatchDoneToggle(id);
     },
     removeTodo(id) {
       // 불변객체
@@ -83,51 +85,52 @@ export default {
       // ==> 1. map, filter, reduce
       //     2. spread 연산자: ...
       //     3. 라이브러리 방식: immer, immutable
-      const newTodos = this.$data.todoItems.filter((item) => {
-        if (item.id === id) {
-          return false;
-        }
-        return true;
-      }); // 복제
-
-      this.$data.todoItems = newTodos; // 재할당
+      // const newTodos = this.$data.todoItems.filter((item) => {
+      //   if (item.id === id) {
+      //     return false;
+      //   }
+      //   return true;
+      // }); // 복제
+      // this.$data.todoItems = newTodos; // 재할당
+      dispatchRemoveTodo(id);
     },
     addTodo(e, newTodoItem) {
-      debugger;
-      console.log(e.target);
-      console.log(newTodoItem);
+      // debugger;
+      // console.log(e.target);
+      // console.log(newTodoItem);
 
-      // newTodoItem 값이 없으면 종료한다. 빈값 호출 방지.
-      if (!newTodoItem) {
-        return;
-      }
+      // // newTodoItem 값이 없으면 종료한다. 빈값 호출 방지.
+      // if (!newTodoItem) {
+      //   return;
+      // }
 
-      // max id 구하기 ==> map과 reduce 를 사용하여
-      //    1. id 값 만 있는 새로운 배열을 만든다. ==> map() 메서드 사용.
-      //    2. map() 메서드로 만들어진 새로운 배열에서 최대값을 찾는다. ===> reduce() 메서드 사용
-      //    3. 추가될 새로운 id = max id + 1
-      const ids = this.$data.todoItems.map((item) => item.id);
-      console.log(ids);
+      // // max id 구하기 ==> map과 reduce 를 사용하여
+      // //    1. id 값 만 있는 새로운 배열을 만든다. ==> map() 메서드 사용.
+      // //    2. map() 메서드로 만들어진 새로운 배열에서 최대값을 찾는다. ===> reduce() 메서드 사용
+      // //    3. 추가될 새로운 id = max id + 1
+      // const ids = this.$data.todoItems.map((item) => item.id);
+      // console.log(ids);
 
-      // maxid = ids[ids.length - 1] + 1;
-      const maxid = ids.reduce((pvalue, cvalue) => {
-        if (pvalue > cvalue) return pvalue;
-        else return cvalue;
-      }, 0);
-      console.log(maxid);
+      // // maxid = ids[ids.length - 1] + 1;
+      // const maxid = ids.reduce((pvalue, cvalue) => {
+      //   if (pvalue > cvalue) return pvalue;
+      //   else return cvalue;
+      // }, 0);
+      // console.log(maxid);
 
-      const newid = maxid + 1;
+      // const newid = maxid + 1;
 
-      // todoItems 추가할 객체 만들기
-      const newTodo = {
-        id: newid,
-        todo: newTodoItem,
-        done: false,
-      };
+      // // todoItems 추가할 객체 만들기
+      // const newTodo = {
+      //   id: newid,
+      //   todo: newTodoItem,
+      //   done: false,
+      // };
 
-      // todoItems 배열에 객체 추가. 복제후재할당 방식 사용하여
-      // this.$data.todoItems.push(newTodo);
-      this.$data.todoItems = [...this.$data.todoItems, newTodo];
+      // // todoItems 배열에 객체 추가. 복제후재할당 방식 사용하여
+      // // this.$data.todoItems.push(newTodo);
+      // this.$data.todoItems = [...this.$data.todoItems, newTodo];
+      dispatchAddTodo(newTodoItem);
     },
 
     /* vuex 를 사용하는 경우
@@ -139,6 +142,13 @@ export default {
       2) store.모듈명.actions 이름 그대로 사용하기
          ...mapActions('모듈명', ['액션명1', '액션명2']),
       */
+    ...mapActions('storeTodo', {
+      dispatchClearAll: 'clearAll',
+      dispatchDoneToggle: 'doneToggle',
+      dispatchRemoveTodo: 'removeTodo',
+      dispatchAddTodo: 'addTodo',
+      dispatchGetTodo: 'getTodo',
+    }),
   },
   components: {
     /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
