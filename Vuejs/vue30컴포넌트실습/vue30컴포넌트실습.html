@@ -692,14 +692,13 @@
         $ touch src/components/vue34ex/Vue34exParent.vue
         $ touch src/components/vue34ex/Vue34exChild.vue
 
-    src/App.vue 수정 ==> 페이지 링크 만들기
+    src/App.vue 수정 ==> url 페이지 링크 만들기
 
     src/router/index.js  수정 ==> url 과 컴포넌트 연결
 
     src/views/Vue34exView.vue 생성(뷰 컴포넌트)
     <template>
         <div id="app">
-            자식 컴포넌트에서 받은 값: {{mesg}}
             <Vue34exParent></Vue34exParent>
         </div>
     </template>
