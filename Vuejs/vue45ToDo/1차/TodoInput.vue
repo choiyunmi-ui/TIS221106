@@ -103,7 +103,7 @@ input:focus {
             <div class="modal-wrapper">
                 <div class="modal-container">
                     <div class="modal-header">
-                        <h3 slot="header">경고</h3>
+                        <h3>경고</h3>
                     </div>
 
                     <div class="modal-footer">
