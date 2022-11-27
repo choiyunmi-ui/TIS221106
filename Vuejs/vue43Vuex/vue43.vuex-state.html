@@ -1,87 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
     <title>Vuex Sample</title>
 
     <!-- CSS import -->
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet"
+      href="../css/reset.css">
 
-</head>
+  </head>
 
-<body>
+  <body>
     <xmp>
 
-    "vue40App" 폴더의 vueapp01 프로젝트에 아래 기능을 추가한다. 
-
-
-    ##################################
-    프로젝트에 폴더 및 파일 추가
-    ##################################
-
-        프로젝트
-        |-- dist
-        |-- node_modules
-        |-- public
-        |   |-- favicon.ico
-        |   `-- index.html
-        |-- src
-        |   |-- assets
-        |   |   `-- logo.png
-        |   |-- components
-        |   |   |-- HelloWorld.vue
-        |   |   |-- vue4301
-        |   |   |   `-- Vue4301Comp.vue
-        |   |   |-- vue4305
-        |   |   |   |-- Vue4305Parent.vue
-        |   |   |   `-- Vue4305Child.vue
-        |   |   `-- vue4501
-        |   |       `-- Vue4501Comp.vue
-        |   |-- router
-        |   |   `-- index.js
-        |   |-- store
-        |   |   `-- index.js
-        |   |-- views
-        |   |   |-- AboutView.vue
-        |   |   |-- HomeView.vue
-        |   |   |-- Page4301View.vue
-        |   |   |-- Page4305View.vue
-        |   |   `-- Page4501View.vue
-        |   |-- App.vue
-        |   `-- main.js
-        |-- .browserslistrc
-        |-- .eslintrc.js
-        |-- .gitignore
-        |-- README.md
-        |-- babel.config.js
-        |-- jsconfig.json
-        |-- package.json
-        `-- vue.config.js
-
-        # package.json 존재 여부 확인
-        $ ls
-        babel.config.js  jsconfig.json  node_modules/  package.json  package-lock.json  public/  README.md  src/  vue.config.js
-
-
-        # 폴더 만들기
-        $ mkdir -p src/components/vue4301 \
-                   src/components/vue4305 \
-                   src/components/vue4501
-
-        # 페이지 컴포넌트 만들기
-        $ touch src/views/Page4301View.vue \
-                src/views/Page4305View.vue \
-                src/views/Page4501View.vue
-
-
-        # 프리젠테이션(화면) 컴포넌트 만들기
-        $ touch src/components/vue4301/Vue4301Comp.vue \
-                src/components/vue4305/Vue4305Parent.vue \
-                src/components/vue4305/Vue4305Child.vue \
-                src/components/vue4501/Vue4501Comp.vue
-
+    "vue30컴포넌트실습" 폴더의 comprj01 프로젝트에 아래 기능을 추가한다.
 
     ##################################
     vue4301 작업1. data 를 이용한 기본 기능 완성하기
@@ -406,21 +341,28 @@
     </xmp>
 
     <div style="margin: 0 0 0 62px;">
-    <div>
+      <div>
         <p style="color: red; font-style: bold;">
-            6-1. 실행 전에  서버를 실행하세요.
-            <a href="#" onClick="window.open('../../ES2015문법/ap09.서버통신/ap09-03.Node서버실행.html','Node서버실행','width=900,height=650,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;" rel="nofollow">Node서버실행</a>
+          6-1. 실행 전에 서버를 실행하세요.
+          <a href="#"
+            onClick="window.open('../../ES2015문법/ap09.서버통신/ap09-03.Node서버실행.html','Node서버실행','width=900,height=650,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;"
+            rel="nofollow">Node서버실행</a>
         </p>
         <p>&nbsp;</p>
         <p>
-            2. 브라우저로 서버 실행 여부 확인<br>
-            <a href="http://localhost:5050/counter" target="_blank">http://localhost:5050/counter</a>   ==> 현재값 가져오기<br>
-            <a href="http://localhost:5050/counter?step=1" target="_blank">http://localhost:5050/counter?step=1</a>   ==> 1 씩 증가<br>
-            <a href="http://localhost:5050/counter?step=-1" target="_blank">http://localhost:5050/counter?step=-1</a>   ==> -1 씩 증가<br>
-            <a href="http://localhost:5050/counter?step=10" target="_blank">http://localhost:5050/counter?step=10</a>  ==> 10 씩 증가<br>
-            <a href="http://localhost:5050/counter?step=-10" target="_blank">http://localhost:5050/counter?step=-10</a>  ==> -10 씩 증가<br>
+          2. 브라우저로 서버 실행 여부 확인<br>
+          <a href="http://localhost:5050/counter"
+            target="_blank">http://localhost:5050/counter</a> ==> 현재값 가져오기<br>
+          <a href="http://localhost:5050/counter?step=1"
+            target="_blank">http://localhost:5050/counter?step=1</a> ==> 1 씩 증가<br>
+          <a href="http://localhost:5050/counter?step=-1"
+            target="_blank">http://localhost:5050/counter?step=-1</a> ==> -1 씩 증가<br>
+          <a href="http://localhost:5050/counter?step=10"
+            target="_blank">http://localhost:5050/counter?step=10</a> ==> 10 씩 증가<br>
+          <a href="http://localhost:5050/counter?step=-10"
+            target="_blank">http://localhost:5050/counter?step=-10</a> ==> -10 씩 증가<br>
         </p>
-    </div>
+      </div>
     </div>
 
     <xmp>
@@ -535,6 +477,6 @@
 
 
     </xmp>
-</body>
+  </body>
 
 </html>

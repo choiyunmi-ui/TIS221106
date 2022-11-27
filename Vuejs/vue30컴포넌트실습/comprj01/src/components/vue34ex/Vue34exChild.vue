@@ -25,12 +25,12 @@ export default {
     addCounter(e) {
       debugger;
       console.log(e.target);
-      this.$emit( 'add-counter', +1);
+      this.$emit('add-counter', +1);
     },
     subCounter(e) {
       debugger;
       console.log(e.target);
-      this.$emit( 'sub-counter', -1);
+      this.$emit('sub-counter', -1);
     },
   },
   components: {
