@@ -63,20 +63,32 @@ export default {
     clearAll(e) {
       debugger;
       console.log(e.target);
-      // this.$data.todoItems = [];
+      this.$data.todoItems = [];
+    },
+    doneToggle(id) {
+      debugger;
+      console.log(id);
+      // 불변객체
+      // ==> 복제 후 재할당 방식으로 처리
+      // ==> 1. map, filter, reduce
+      //     2. spread 연산자: ...
+      //     3. 라이브러리 방식: immer, immutable
+      const newTodos = this.$data.todoItems.map((item /* , index, array */) => {
+        if (item.id === id) {
+          item.done = !item.done;
+        }
+        return item;
+      }); // 복제
+      this.$data.todoItems = newTodos; // 재할당
+    },
+    removeTodo(id) {
+      debugger;
+      console.log(id);
     },
     addTodo(e, newTodoItem) {
       debugger;
       console.log(e.target);
       console.log(newTodoItem);
-    },
-    doneToggle(id) {
-      debugger;
-      console.log(id);
-    },
-    removeTodo(id) {
-      debugger;
-      console.log(id);
     },
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드니다.
