@@ -645,9 +645,8 @@
             3. 인스턴스나 컴포넌트 의 methods 에서 store.dispatch 호출 하도록 수정
 
         3. 컴포넌트의 로직을 Vuex 로 이동시 주의 사항.
-            1. this.$set() 는 Vuex 에서 사용할 수 없다.
-            2. this.$data 는 Vuex 에서 사용할 수 없다. ==> this.$data 는  state 로 변경 한다.
-            3. Vuex 에서 객체배열(Object Array)에 값을 추가할 때는 array의 push 메서드를 사용해도 된다.
+            1. this.$data 는 Vuex 에서 사용할 수 없다. ==> this.$data 는  state 로 변경 한다.
+            2. Vuex 에서 객체배열(Object Array)에 값을 추가할 때는 array의 push 메서드를 사용해도 된다.
 
 
     ##################################
@@ -665,7 +664,7 @@
             $ touch ./src/store/index.js
             $ touch ./src/store/modules/todoStore.js
 
-        11-3. todoStore.js
+        11-3. todoStore.js 코드 만들기
             // 파일 위치: /src/store/modules/todoStore.js
             // 단축키: vuex
 

@@ -37,7 +37,7 @@ button {
 
 <script>
 // vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
-// import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
+import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
 import TodoHeader from '../components/todo/TodoHeader.vue';
 import TodoFooter from '../components/todo/TodoFooter.vue';
 import TodoInput from '../components/todo/TodoInput.vue';
@@ -49,12 +49,12 @@ export default {
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
     return {
-      todoItems: [
-        { id: 1, todo: '영화보기', done: false },
-        { id: 2, todo: '주말 산책', done: true },
-        { id: 3, todo: 'ES6 학습', done: false },
-        { id: 4, todo: '잠실 야구장', done: false },
-      ],
+      // todoItems: [
+      //   { id: 1, todo: '영화보기', done: false },
+      //   { id: 2, todo: '주말 산책', done: true },
+      //   { id: 3, todo: 'ES6 학습', done: false },
+      //   { id: 4, todo: '잠실 야구장', done: false },
+      // ],
     };
   },
   //template: ``,
@@ -159,6 +159,7 @@ export default {
       2) store.모듈명.getters 이름 그대로 사용하기(추천방식)
          ...mapGetters('모듈명', ['게터명1', '게터명2']),
       */
+    ...mapGetters('todoStore', ['todoItems']),
   },
   watch: {
     /* 자동처리 + 비동기식. data 에 등록된 프로퍼티(변수) 모니터링. 메서드로 작성. 매개변수 필수. 외부 api 호출을 위해서 사용 */
