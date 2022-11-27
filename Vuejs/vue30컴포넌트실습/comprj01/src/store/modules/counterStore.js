@@ -25,7 +25,10 @@ const store = {
      * 첫번째인자: 무조건 state 로 고정.
      * 두번째인자: 값. mutations.commit() 호출시 넘겨지는 값.
      * */
-    setCounter(state /* 고정 */, param /* mutations.commit 호출시 넘겨지는 값 */) {
+    setCounter(
+      state /* 고정 */,
+      param /* mutations.commit 호출시 넘겨지는 값 */,
+    ) {
       debugger;
       // state.인자 = param;
       state.counter = state.counter + param;
