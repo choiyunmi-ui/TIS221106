@@ -13,7 +13,7 @@
 
 <script>
 // vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
-// import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
+import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
 
 export default {
   /* pdtmc^2w */
@@ -29,14 +29,32 @@ export default {
   },
   //template: ``,
   methods: {
+    /* vuex 를 사용하는 경우
+      mapActions 는 store의 actions 를 가져오는 헬퍼 메서드입니다.
+      namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.
+      store 모듈에서 actions 를 가져오는 2가지 방식
+      1) store.모듈명.actions 이름 바꾸어 사용하기(추천방식)
+         ...mapActions('모듈명', { dispatch액션명1: '액션명1', dispatch액션명2: '액션명2' }),
+      2) store.모듈명.actions 이름 그대로 사용하기
+         ...mapActions('모듈명', ['액션명1', '액션명2']),
+      */
+    ...mapActions('counterStore', {
+      dispatchSet: 'setCounter',
+      dispatchGet: 'get',
+    }),
+
     /* 이벤트 핸들러 등록 + 일반 함수 */
     handlerIncrement(e) {
       console.log(e.target);
-      this.$data.counter = this.$data.counter + 1;
+      debugger;
+      // this.$data.counter = this.$data.counter + 1;
+      this.dispatchSet(+1);
     },
     handlerDecrement(e) {
       console.log(e.target);
-      this.$data.counter = this.$data.counter - 1;
+      debugger;
+      // this.$data.counter = this.$data.counter - 1;
+      this.dispatchSet(-1);
     },
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져옵니다.
@@ -54,6 +72,7 @@ export default {
   },
   computed: {
     /* 자동처리 + 동기식. 메서드로 작성. return 필수. data 와 공존 불가 */
+
     /* vuex 를 사용하는 경우
       mapGetters 는 store의 getters 를 가져옵니다.
       namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.
@@ -63,6 +82,7 @@ export default {
       2) store.모듈명.getters 이름 그대로 사용하기(추천방식)
          ...mapGetters('모듈명', ['게터명1', '게터명2']),
       */
+    ...mapGetters('counterStore', ['welcome', 'counter']),
   },
   watch: {
     /* 자동처리 + 비동기식. data 에 등록된 프로퍼티(변수) 모니터링. 메서드로 작성. 매개변수 필수. 외부 api 호출을 위해서 사용 */

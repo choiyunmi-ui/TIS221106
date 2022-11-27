@@ -193,10 +193,10 @@
     store에서 state을 가져오는 get 기능을 구현 한다. <== 같이
 
     Vuex 헬퍼 메서드들.
-        mapActions(*)
+        mapActions(*)   ==> methods 에서 주로 사용
         mapMutations
         mapState
-        mapGetters(*)
+        mapGetters(*)   ==> computed에서 주로 사용
 
     mapActions는 store의 actions를 가져오는 헬퍼 메서드로
     컴포넌트의 methods 에서 사용된다.
@@ -204,17 +204,13 @@
     mapGetters는 store의 getters를 가져오는 헬퍼 메서드로
     컴포넌트의 computed 에서 사용된다.
 
-    mapMutations는 store의 muations 를 가져오는 헬퍼 메서드로
-    컴포넌트의 methods 에서 사용된다.
-    mapMutations 보다는 mapActions 를 사용하는 것을 추천.
-
     중요하게 봐야할 부분은 mapActions, mapGetters 입니다.
     ##################################
 
     3-1. store.counterStore.state 작성
         파일명: src/store/modules/counterStore.js
 
-        vue 인스턴스 data 의 welcome과 counter를 vuex store 로 옮기기.
+        컴포넌트 data 의 welcome과 counter를 vuex store 로 옮기기.
         state: {
             /* vue인스턴스나 컴포넌트의 data 프로퍼티에 해당 */
             welcome: 'HELLO WORLD VUEX',
