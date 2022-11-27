@@ -63,6 +63,7 @@ export default {
     clearAll(e) {
       debugger;
       console.log(e.target);
+      // this.$data.todoItems = [];
     },
     addTodo(e, newTodoItem) {
       debugger;

@@ -55,7 +55,7 @@ li.checked {
         <span
           class="removeBtn"
           type="button"
-          v-on:click.stop="removeTodo(this, todoItem.id)"
+          v-on:click.stop="removeTodo(todoItem.id)"
         >
           <i class="far fa-trash-alt" aria-hidden="true"></i>
         </span>
@@ -81,20 +81,22 @@ export default {
     checked(done) {
       debugger;
       console.log(done);
+
+      if (done === true) return 'checked';
+      else return null;
     },
     doneToggle(id) {
       debugger;
       console.log(id);
       this.$emit('doneToggle', id);
     },
-    removeTodo(e, id) {
+    removeTodo(id) {
       debugger;
-      console.log(e.target);
       console.log(id);
       this.$emit('removeTodo', id);
 
       // 이벤트 버블링 막기: 이벤트 취소
-      // vue에서 .stop 을 사용.
+      // vue에서 v-on:이벤트명.stop 을 사용.
       window.event.stopPropagation();
       window.event.preventDefault();
     },

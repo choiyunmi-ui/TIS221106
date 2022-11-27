@@ -138,7 +138,20 @@ export default {
     addTodo(e) {
       debugger;
       console.log(e.target);
-      this.$emit('addTodo', e, this.$data.newTodoItem);
+      if (
+        // this.$data.newTodoItem === null ||
+        // this.$data.newTodoItem === undefined ||
+        // this.$data.newTodoItem === '' ||
+        !this.$data.newTodoItem ||
+        this.$data.newTodoItem.trim() === ''
+      ) {
+        this.$data.showModal = true;
+      } else {
+        this.$emit('addTodo', e, this.$data.newTodoItem);
+
+        // input 태그 초기화
+        this.$data.newTodoItem = '';
+      }
     },
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드니다.
