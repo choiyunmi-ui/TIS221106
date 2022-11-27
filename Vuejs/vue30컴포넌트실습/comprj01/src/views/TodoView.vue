@@ -96,6 +96,38 @@ export default {
       debugger;
       console.log(e.target);
       console.log(newTodoItem);
+
+      // newTodoItem 값이 없으면 종료한다. 빈값 호출 방지.
+      if (!newTodoItem) {
+        return;
+      }
+
+      // max id 구하기 ==> map과 reduce 를 사용하여
+      //    1. id 값 만 있는 새로운 배열을 만든다. ==> map() 메서드 사용.
+      //    2. map() 메서드로 만들어진 새로운 배열에서 최대값을 찾는다. ===> reduce() 메서드 사용
+      //    3. 추가될 새로운 id = max id + 1
+      const ids = this.$data.todoItems.map((item) => item.id);
+      console.log(ids);
+
+      // maxid = ids[ids.length - 1] + 1;
+      const maxid = ids.reduce((pvalue, cvalue) => {
+        if (pvalue > cvalue) return pvalue;
+        else return cvalue;
+      }, 0);
+      console.log(maxid);
+
+      const newid = maxid + 1;
+
+      // todoItems 추가할 객체 만들기
+      const newTodo = {
+        id: newid,
+        todo: newTodoItem,
+        done: false,
+      };
+
+      // todoItems 배열에 객체 추가. 복제후재할당 방식 사용하여
+      // this.$data.todoItems.push(newTodo);
+      this.$data.todoItems = [...this.$data.todoItems, newTodo];
     },
 
     /* vuex 를 사용하는 경우
