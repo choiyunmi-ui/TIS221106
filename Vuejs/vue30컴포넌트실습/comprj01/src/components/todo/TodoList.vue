@@ -55,7 +55,7 @@ li.checked {
         <span
           class="removeBtn"
           type="button"
-          v-on:click="removeTodo(todoItem.id)"
+          v-on:click.stop="removeTodo(this, todoItem.id)"
         >
           <i class="far fa-trash-alt" aria-hidden="true"></i>
         </span>
@@ -87,12 +87,16 @@ export default {
       console.log(id);
       this.$emit('doneToggle', id);
     },
-    removeTodo(id) {
+    removeTodo(e, id) {
       debugger;
+      console.log(e.target);
       console.log(id);
       this.$emit('removeTodo', id);
 
       // 이벤트 버블링 막기: 이벤트 취소
+      // vue에서 .stop 을 사용.
+      window.event.stopPropagation();
+      window.event.preventDefault();
     },
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드니다.
