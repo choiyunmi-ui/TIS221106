@@ -136,7 +136,9 @@ export default {
   methods: {
     /* 이벤트 핸들러 등록 + 일반 함수 */
     addTodo(e) {
+      debugger;
       console.log(e.target);
+      this.$emit('addTodo', e, this.$data.newTodoItem);
     },
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드니다.

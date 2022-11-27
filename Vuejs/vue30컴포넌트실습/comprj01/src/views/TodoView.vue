@@ -21,9 +21,14 @@ button {
     <TodoHeader></TodoHeader>
 
     <!-- TodoInput -->
-    <TodoInput></TodoInput>
+    <TodoInput v-on:addTodo="addTodo"></TodoInput>
 
     <!-- TodoList -->
+    <TodoList
+      v-bind:todoItems="todoItems"
+      v-on:doneToggle="doneToggle"
+      v-on:removeTodo="removeTodo"
+    ></TodoList>
 
     <!-- TodoFooter -->
     <TodoFooter v-on:clearAll="clearAll"></TodoFooter>
@@ -36,13 +41,21 @@ button {
 import TodoHeader from '../components/todo/TodoHeader.vue';
 import TodoFooter from '../components/todo/TodoFooter.vue';
 import TodoInput from '../components/todo/TodoInput.vue';
+import TodoList from '../components/todo/TodoList.vue';
 
 export default {
   /* pdtmc^2w */
   props: [],
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
-    return {};
+    return {
+      todoItems: [
+        { id: 1, todo: '영화보기', done: false },
+        { id: 2, todo: '주말 산책', done: true },
+        { id: 3, todo: 'ES6 학습', done: false },
+        { id: 4, todo: '잠실 야구장', done: false },
+      ],
+    };
   },
   //template: ``,
   methods: {
@@ -50,6 +63,19 @@ export default {
     clearAll(e) {
       debugger;
       console.log(e.target);
+    },
+    addTodo(e, newTodoItem) {
+      debugger;
+      console.log(e.target);
+      console.log(newTodoItem);
+    },
+    doneToggle(id) {
+      debugger;
+      console.log(id);
+    },
+    removeTodo(id) {
+      debugger;
+      console.log(id);
     },
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드니다.
@@ -67,6 +93,7 @@ export default {
     TodoHeader: TodoHeader,
     TodoFooter: TodoFooter,
     TodoInput: TodoInput,
+    TodoList: TodoList,
   },
   computed: {
     /* 자동처리 + 동기식. 메서드로 작성. return 필수. data 와 공존 불가 */
