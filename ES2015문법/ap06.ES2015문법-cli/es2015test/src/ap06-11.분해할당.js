@@ -37,9 +37,10 @@ const model1 = car.model;
 console.log(type1, color1, model1); // t S 2021
 
 // ES2015 에서의 객체 분해 할당. {} 사용해서
-const { type: type, color: color, model: model, gear: gear } = car;
-// const { type, color, model, gear } = car;
+//                                                           = { type: 't', color: 'S', model: 2021 };
+// const { type: type, color: color, model: model, gear: gear } = { type: 't', color: 'S', model: 2021 };
+const { type, color, model, gear } = { type: 't', color: 'S', model: 2021 };
 console.log(type, color, model, gear); // t S 2021 undefined
 
-const { type: type2, color: color2, model: model2, gear: gear2 } = car;
+const { type: type2, color: color2, model: model2, gear: gear2 } = { type: 't', color: 'S', model: 2021 };;
 console.log(type2, color2, model2, gear2); // t S 2021 undefined
