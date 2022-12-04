@@ -90,18 +90,17 @@
   ReactDOM.render(<HelloContainer />, document.getElementById('app'));
 
   // 단축키 rfc
-  function HelloContainer({
-    ...props
-  }) {
+  function HelloContainer({ ...props }) {
     return (
       <HelloReact mesgOfProps={"Hello, Props!!!"}>
       </HelloReact>
     )
   }
-
-  function HelloReact({ ...props }) {
+  // {...props}      = { mesgOfProps: "Hello, Props!!!" }
+  // { mesgOfProps } = { mesgOfProps: "Hello, Props!!!" } //객체 분해 할당
+  function HelloReact({ mesgOfProps }) {
     // useState 를 사용한 컴포넌트의 상태값 설정
-    const [변수명, set변수명] = useState('기본값'); // 상태값이 기본타입인 경우
+    const [mesgOfState, setMesgOfState] = useState('Hello, State!!!'); // 상태값이 기본타입인 경우
 
     // 이벤트 핸들러 작성.
     const handler = (e) => {
@@ -116,6 +115,7 @@
         <br />
         도전2. {mesgOfState}
         <br />
+        도전3. {mesgOfProps}
       </div>
     )
   }
