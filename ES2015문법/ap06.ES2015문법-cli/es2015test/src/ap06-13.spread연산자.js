@@ -39,3 +39,37 @@ const west = ['N', 'C', 'G'];
 console.log(east.concat(west)); // ['U', 'K', 'T', 'N', 'C', 'G']
 const countries = [...east, ...west]; // ... : spread 연산
 console.log(countries);
+
+// 객체에서의 스프레드 연산자 사용법을 익힌다.
+const car1 = {
+  type: 't1',
+  color: 'S1',
+  model: 2017,
+};
+const car2 = {
+  type: 't2',
+  color: 'S2',
+  model: 2019,
+};
+const { type } = car1;
+console.log(type); // t1
+
+// {type} = { ...car1, ...car2 }
+const func = function ({ type }) {
+  console.log(type); // type 값은 무엇인가?
+};
+func({ ...car1, ...car2 });
+
+const moring = {
+  breacfast: '미역국',
+  lunuch: '삼치구이',
+};
+
+const dinner = '스테이크';
+
+const meals = {
+  ...moring,
+  dinner, // dinner: dinner,
+};
+
+console.log(meals); // meals 에 출력되는 값은 무엇인가?
