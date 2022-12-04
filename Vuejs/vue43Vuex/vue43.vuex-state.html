@@ -103,7 +103,7 @@
         $ mkdir -p ./src/store/modules
 
     작업2-2. store 파일 생성
-        $ touch ./src/store/index.js   # 있을수로 있음.
+        $ touch ./src/store/index.js   # 있을 수도 있음.
         $ touch ./src/store/modules/counterStore.js
 
     작업2-3. counterStore.js
@@ -203,6 +203,10 @@
 
     mapGetters는 store의 getters를 가져오는 헬퍼 메서드로
     컴포넌트의 computed 에서 사용된다.
+
+    mapMutations는 store의 muations 를 가져오는 헬퍼 메서드로
+    컴포넌트의 methods 에서 사용된다.
+    mapMutations 보다는 mapActions 를 사용하는 것을 추천.
 
     중요하게 봐야할 부분은 mapActions, mapGetters 입니다.
     ##################################

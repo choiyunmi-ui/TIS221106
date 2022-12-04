@@ -10,22 +10,27 @@ const store = {
      * 두번째인자: 값. store.dispatch()호출시 넘겨지는 값.
      */
     clearAll(mutations /* 고정 */) {
+      debugger;
       const { commit } = mutations;
       commit('clearAll');
     },
     doneToggle(mutations /* 고정 */, id) {
+      debugger;
       const { commit } = mutations;
       commit('doneToggle', id);
     },
     removeTodo(mutations /* 고정 */, id) {
+      debugger;
       const { commit } = mutations;
       commit('removeTodo', id);
     },
     addTodo(mutations /* 고정 */, newTodoItem) {
+      debugger;
       const { commit } = mutations;
       commit('addTodo', newTodoItem);
     },
     getTodo(mutations /* 고정 */) {
+      debugger;
       const { commit } = mutations;
       commit('getTodo');
     },
