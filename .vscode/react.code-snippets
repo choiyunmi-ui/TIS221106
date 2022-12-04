@@ -111,7 +111,8 @@
     "description": "React Class Component"
   },
   "React Functional Component At plugin": {
-    "prefix": "rfchtml",
+    // "prefix": "rfchtml",
+    "prefix": "rfc",
     "body": [
       "function ${1:${TM_FILENAME_BASE}}({",
       "  ...props",
@@ -163,7 +164,8 @@
     "description": "React Functional Component At plugin"
   },
   "React Functional Component": {
-    "prefix": "rfc",
+    // "prefix": "rfc",
+    "prefix": "rfc2",
     "body": [
       "import React, { useState, useEffect, useRef, useCallback, useMemo, useReducer, Fragment, forwardRef, useImperativeHandle } from 'react';",
       "import PropTypes from 'prop-types';",
@@ -892,6 +894,7 @@
       "",
       "    const { useState, useEffect, useRef, useCallback, useMemo, useReducer, Fragment } = React;",
       "",
+      "    // id=\"app\" 인 곳에 컴포넌트를 붙이시오",
       "    ReactDOM.render(<컴포넌트이름 />, document.getElementById('app'));",
       "",
       "   // 단축키 rfc",
