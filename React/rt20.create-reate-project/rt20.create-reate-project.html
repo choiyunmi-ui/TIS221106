@@ -542,7 +542,7 @@
         };
 
 
-    4-6. 전체 소스를 eslint 규칙에 맞게 포맷팅 변경하기
+    4-6. 소스 전체에  eslint 규칙에 맞게 포맷팅 변경하기
         정의한 ESLint 룰을 지키고 있지 않은 파일과 내용을 확인하고
         prettier 의 룰에 맞게 코드를 수정 할 수 있습니다.
 
@@ -555,10 +555,11 @@
         githook은 git 에 특정 이벤트(커밋, 푸시 등)를 감지하여
         이벤트를 실행하기 전에 특정 동작을 수행할 수 있도록 도와주는 플러그인 입니다.
 
-        husky와 lint-staged의역할은 다음과 같다.
+        husky와 lint-staged의 역할은 다음과 같다.
         . husky: packages.json 파일에서 githook를 사용할 수 있게 해준다.
         . lint-staged: git 의 stage된 파일들에 특정 동작을 수행할 수 있도록 해준다.
-        . lint-staged와 husky를 사용하여 git 이벤트에 Prettier 명령어를 연동 설정.
+
+        lint-staged와 husky를 사용하여 git 이벤트에 Prettier 명령어를 연동 설정.
 
         commit 전에 자동으로 prettier 적용하기
         $ npm install --save-dev  husky  lint-staged
@@ -567,6 +568,7 @@
         $ cat packages.json
         {
           ...중략   ,
+          
           "husky": {
               "hooks": {
                   "pre-commit" : "lint-staged"
