@@ -14,6 +14,7 @@ react 단축키:
   rfchtml     : 함수형 컴포넌트 코드 생성 .html 파일에서 사용.
   rfc         : 함수형 컴포넌트 코드 생성 .js 파일에서 사용.
   rdx         : redux 코드 생성
+  styled      : styled-components 를 사용하는 스타일 태그 만들기
 
 
 메서드 매개변수 확인하는 방법: ctrl + shift + spacebar
@@ -21,16 +22,8 @@ react 단축키:
 react 프로젝트 만들기
   1.node 설치. 1번만
 
-  2. vue 프로젝트 생성. 프로젝트를 만들 때 마다
-    $ npx  create 프로젝트명
+  2. react 프로젝트 생성. 프로젝트를 만들 때 마다
+    $ npx create-react-app 프로젝트명
 
   3. node 모듈 재설치. node_modules 폴더가 생성됨
     $ npm install
-
-1. useCallback
-2. 리액트 프로젝트 만들기 ==> npx create-react-app 프로젝트명
-3. 리액트 스타일링 ==> styled-components
-4. 리액트 라우팅
-5. Todod 실습 ==> html 만 있다고 가정.
-
-단축키 : rfc
