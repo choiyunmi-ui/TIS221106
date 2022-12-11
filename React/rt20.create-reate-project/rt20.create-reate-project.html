@@ -39,7 +39,7 @@
     ##################################
     step 1-01. node / npm 버전 업그레이드
         $ node -v                          #  node 버전 확인
-        v16.16.0
+        v16.18.1
 
         $ npm -v                           #  npm 버전 확인
         8.19.2
@@ -55,14 +55,6 @@
 
 
     step 1-02. 프로젝트 생성
-
-        $ npm uninstall -g create-react-app    # 전역으로 설치된 CRA(create-react-app) 모듈 삭제하기
-
-        $ npx clear-npx-cache                  # npx 로 다운로드된 캐쉬되어 있는 모듈 삭제
-        Need to install the following packages:
-          clear-npx-cache
-        Ok to proceed? (y) y
-        ....
 
         $ npx create-react-app reactprj01        # 프로젝트명은 소문자로 만들어야 함.
         Need to install the following packages:
@@ -172,17 +164,6 @@
 
         $ npm install --save immer
 
-    <script type="text/x-template">
-    step 1-28. react-virtualized 라이브러리 설치
-        windowing 기법을 처리하는 라이브러리.
-        windowing 기법이란 보이는 부분만 렌더링하고
-                           보이지 않는 부분은 렌더링하지 않는 처리 방식을 말한다.
-        ==> 보이는 영역만 DOM 에 만들어라
-        React components for efficiently rendering large lists and tabular data.
-        https://www.npmjs.com/package/react-virtualized
-
-        $ npm install --save react-virtualized
-    </script>
 
     @@@@@@@@@@@@@@@@@@@@@@@@@
     @ 디자인 라이브러리 설치
