@@ -176,6 +176,27 @@ function TodoContainer({ ...props }) {
       todoItems,
     ],
   );
+  const callbackDoneToggle = useCallback(
+    (param) => {
+      // state 변경
+      debugger;
+      const newTodos =
+        todoItems &&
+        todoItems.map((item) => {
+          if (item.id === param) {
+            item.done = !item.done;
+          }
+          return item;
+        });
+
+      // todoItems = newTodos
+      setTodoItems(newTodos);
+    },
+    [
+      /* 연관배열: 콜백 메서드에서 변경하고자 하는 연관되는 상태(변수)명들을 기술 */
+      todoItems,
+    ],
+  );
 
   // 이벤트 핸들러 작성.
   const handler = (e) => {
@@ -216,7 +237,7 @@ function TodoContainer({ ...props }) {
         </div>
 
         {/* <!-- TodoList --> */}
-        <TodoList todoItems={todoItems}></TodoList>
+        <TodoList todoItems={todoItems} callbackDoneToggle={callbackDoneToggle}></TodoList>
 
         {/* <!-- TodoHeader --> */}
         <TodoFooter callbackClearAll={callbackClearAll} />
