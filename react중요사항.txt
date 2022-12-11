@@ -26,3 +26,11 @@ react 프로젝트 만들기
 
   3. node 모듈 재설치. node_modules 폴더가 생성됨
     $ npm install
+
+1. useCallback
+2. 리액트 프로젝트 만들기 ==> npx create-react-app 프로젝트명
+3. 리액트 스타일링 ==> styled-components
+4. 리액트 라우팅
+5. Todod 실습 ==> html 만 있다고 가정.
+
+단축키 : rfc
