@@ -14,7 +14,7 @@ react 단축키:
   rfchtml     : 함수형 컴포넌트 코드 생성 .html 파일에서 사용.
   rfc         : 함수형 컴포넌트 코드 생성 .js 파일에서 사용.
   rdx         : redux 코드 생성
-  styled      : styled-components 를 사용하는 스타일 태그 만들기
+  styled      : 스타일 컴포넌트 코드 생성(styled-components)
 
 
 메서드 매개변수 확인하는 방법: ctrl + shift + spacebar
