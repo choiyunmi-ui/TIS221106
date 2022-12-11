@@ -197,6 +197,29 @@ function TodoContainer({ ...props }) {
       todoItems,
     ],
   );
+  const callbackRemoveTodo = useCallback(
+    (param) => {
+      // state 변경
+      debugger;
+
+      // filter 메서드를 이용한 삭제 방법 실습.
+      const newTodos =
+        todoItems &&
+        todoItems.filter((item) => {
+          if (item.id === param) {
+            return false;
+          }
+          return true;
+        });
+
+      // todoItems = newTodos
+      setTodoItems(newTodos);
+    },
+    [
+      /* 연관배열: 콜백 메서드에서 변경하고자 하는 연관되는 상태(변수)명들을 기술 */
+      todoItems,
+    ],
+  );
 
   // 이벤트 핸들러 작성.
   const handler = (e) => {
@@ -237,7 +260,11 @@ function TodoContainer({ ...props }) {
         </div>
 
         {/* <!-- TodoList --> */}
-        <TodoList todoItems={todoItems} callbackDoneToggle={callbackDoneToggle}></TodoList>
+        <TodoList
+          todoItems={todoItems}
+          callbackDoneToggle={callbackDoneToggle}
+          callbackRemoveTodo={callbackRemoveTodo}
+        ></TodoList>
 
         {/* <!-- TodoHeader --> */}
         <TodoFooter callbackClearAll={callbackClearAll} />
