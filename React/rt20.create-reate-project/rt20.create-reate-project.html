@@ -272,7 +272,7 @@
         # .babelrc 파일을 프로젝트 루트에 만들기
         $ pwd     # 현재 작업하는 폴더 위치 확인
         $ ls -a   # package.json 파일이 보이는지 확인
-        $ touch .babelrc
+        $ touch .babelrc      # .babelrc 파일 생성
         $ echo -e "{\n}" > .babelrc
         $ cat .babelrc
 
@@ -311,7 +311,7 @@
         # .env 파일을 프로젝트 루트에 만들기
         $ pwd     # 현재 작업하는 폴더 위치 확인
         $ ls -a   # package.json 파일이 보이는지 확인
-        $ touch .env
+        $ touch .env    # .env 파일 생성
         $ echo -e "SKIP_PREFLIGHT_CHECK=true \nPORT=15109" > .env
         $ cat .env
 
@@ -330,7 +330,7 @@
             . 들여쓰기에 tab을 쓸 것인가? space를 쓸 것인가?
             . 문자 리터럴로  ' 를 쓸 것인가? " 쓸 것인가?
 
-        Prettier는 소스 코드를 저장할 때나
+        Prettier 는 소스 코드를 저장할 때나
                    git 커밋할 때
                    정의된 규칙에 따라 코드의 형식을 자동으로 수정한다.
 
@@ -341,16 +341,18 @@
 
         # prettier 모듈 설치
         $ npm install --save-dev prettier \
-                    eslint-config-react \
-                    eslint-plugin-prettier \
-                    eslint-config-prettier
+                                 eslint-config-react \
+                                 eslint-plugin-prettier \
+                                 eslint-config-prettier
 
         # .prettierrc.js 파일을 프로젝트 루트에 만들기
         $ pwd     # 현재 작업하는 폴더 위치 확인
         $ ls -a   # package.json 파일이 보이는지 확인
-        $ touch .prettierrc.js    # 파일 생성
+        $ touch .prettierrc.js    # .prettierrc.js 파일 생성
         $ echo -e "module.exports = {\n}" > .prettierrc.js
-        $ cat .prettierrc.js
+        $ cat .prettierrc.js   # .prettierrc.js 파일의 내용 확인
+        module.exports = {
+        }
 
         # .prettierrc.js 파일에 아래 내용을 추가
         $ cat .prettierrc.js
@@ -433,16 +435,20 @@
 
         # 방법2. npm install 을 사용하는 설정 방식(추천)
         $ npm install --save-dev eslint  \
-                                 eslint-config-airbnb  \
                                  eslint-plugin-import  \
                                  eslint-plugin-jsx-a11y  \
                                  eslint-plugin-react  \
                                  eslint-plugin-react-hooks  \
+                                 eslint-config-airbnb  \
                                  babel-eslint
 
-        # .eslintrc.js 파일 생성 후 내용 추가
+        # .eslintrc.js 파일 생성
+        $ touch .eslintrc.js    # .eslintrc.js 파일 생성
+
+        # .eslintrc.js 파일 생성 후 아래의 내용 추가
         $ echo -e "module.exports = {\n}" > .eslintrc.js
 
+        $ cat .eslintrc.js   # .eslintrc.js 파일 내용 확인
 
 
     4-5. eslint 설정
