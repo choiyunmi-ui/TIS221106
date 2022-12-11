@@ -13,17 +13,130 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { BrowserRouter, Routes, Route, NavLink, useParams, useLocation, useHistory, useNavigate } from 'react-router-dom';
 
+import TodoHeader from './components/TodoHeader';
+import TodoFooter from './components/TodoFooter';
+import TodoList from './components/TodoList';
+
 const StyledTodoContainer = styled.div`
   /* styled 설정. https://styled-components.com/docs/basics#adapting-based-on-props */
+  @charset "utf-8";
+
+  h1 {
+    color: #2f3b52;
+    font-weight: 900;
+    margin: 2.5rem 0 1.5rem;
+  }
+
+  button {
+    border-style: groove;
+  }
+
+  input {
+    border-style: groove;
+    width: 200px;
+  }
+
+  .shadow {
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .inputBox {
+    background: white;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+  }
+
+  .inputBox input {
+    border-style: none;
+    font-size: 0.9rem;
+  }
+
+  .addContainer {
+    float: right;
+    background: linear-gradient(to right, #6478fb, #8763fb);
+    display: inline-block;
+    width: 3rem;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .addBtn {
+    color: white;
+    vertical-align: middle;
+  }
+
+  .closeModalBtn {
+    color: #62acde;
+  }
+
+  .modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: table;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .modal-container {
+    width: 300px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .modal-header h3 {
+    margin-top: 0;
+    color: #62acde;
+  }
+
+  .modal-body {
+    margin: 20px 0;
+  }
+
+  .modal-default-button {
+    float: right;
+  }
+
+  .modal-enter {
+    opacity: 0;
+  }
+
+  .modal-leave-active {
+    opacity: 0;
+  }
+
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 `;
 
 function TodoContainer({ ...props }) {
   // useState 를 사용한 컴포넌트의 상태값 설정
-  const [변수명, set변수명] = useState('기본값'); // 상태값이 기본타입인 경우
-  const [state, setState] = useState({ id: 0, name: '', age: 0 }); // 상태값이 참조타입 경우
-
-  // useReducer 를 사용한 컴포넌트의 상태값 설정. 리듀서는 현재 상태를 받아서 새 상태를 반환하는 함수다
-  const [리듀서, set리듀서] = useReducer((oldvalue, newvalue) => ({ ...oldvalue, ...newvalue }), { id: 0, name: '', age: 0 }); // 리듀서(reducer) 방식의 상태값 설정
+  const [todoItems, setTodoItems] = useState([
+    { id: 1, todo: '영화보기', done: false },
+    { id: 2, todo: '주말 산책', done: true },
+    { id: 3, todo: 'ES6 학습', done: false },
+    { id: 4, todo: '잠실 야구장', done: false },
+  ]); // 상태값이 기본타입인 경우
 
   // ref 만들기.
   // const refInput = useRef();
@@ -51,12 +164,16 @@ function TodoContainer({ ...props }) {
   );
 
   // callback 메서드 작성. callback 메서드는 부모의 공유 상태값을 변경하기 위해서 사용된다.
-  const callback = useCallback(
+  const callbackClearAll = useCallback(
     (param) => {
       // state 변경
+      debugger;
+      // todoItems = [];
+      setTodoItems([]);
     },
     [
       /* 연관배열: 콜백 메서드에서 변경하고자 하는 연관되는 상태(변수)명들을 기술 */
+      todoItems,
     ],
   );
 
@@ -71,9 +188,7 @@ function TodoContainer({ ...props }) {
     <StyledTodoContainer>
       <div id="app">
         {/* <!-- TodoHeader --> */}
-        <header>
-          <h1>TODO it!</h1>
-        </header>
+        <TodoHeader></TodoHeader>
 
         {/* <!-- TodoInput --> */}
         <div className="inputBox shadow">
@@ -82,7 +197,7 @@ function TodoContainer({ ...props }) {
             <i aria-hidden="true" className="addBtn fas fa-plus"></i>
           </span>
 
-          <div className="modal-mask">
+          <div className="modal-mask" style={{ display: 'none' }}>
             <div className="modal-wrapper">
               <div className="modal-container">
                 <div className="modal-header">
@@ -101,43 +216,10 @@ function TodoContainer({ ...props }) {
         </div>
 
         {/* <!-- TodoList --> */}
-        <section>
-          <ul>
-            <li>
-              <i aria-hidden="true" className="checkBtn fas fa-check"></i>
-              영화보기
-              <span type="button" className="removeBtn">
-                <i aria-hidden="true" className="far fa-trash-alt"></i>
-              </span>
-            </li>
-            <li className="checked">
-              <i aria-hidden="true" className="checkBtn fas fa-check"></i>
-              주말 산책
-              <span type="button" className="removeBtn">
-                <i aria-hidden="true" className="far fa-trash-alt"></i>
-              </span>
-            </li>
-            <li>
-              <i aria-hidden="true" className="checkBtn fas fa-check"></i>
-              ES6 학습
-              <span type="button" className="removeBtn">
-                <i aria-hidden="true" className="far fa-trash-alt"></i>
-              </span>
-            </li>
-            <li>
-              <i aria-hidden="true" className="checkBtn fas fa-check"></i>
-              잠실 야구장
-              <span type="button" className="removeBtn">
-                <i aria-hidden="true" className="far fa-trash-alt"></i>
-              </span>
-            </li>
-          </ul>
-        </section>
+        <TodoList todoItems={todoItems}></TodoList>
 
         {/* <!-- TodoHeader --> */}
-        <div className="clearAllContainer">
-          <span className="clearAllBtn">Clear All</span>
-        </div>
+        <TodoFooter callbackClearAll={callbackClearAll} />
       </div>
     </StyledTodoContainer>
   );
