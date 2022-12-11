@@ -389,10 +389,6 @@
         babel-eslint : 정식 표준이 아닌 자바스크립트.
                        ES6 이상의 최신 자바스크립트 문법을 사용하는 경우 설치 필요
 
-        # .eslintrc.js 파일을 프로젝트 루트에 만들기
-        $ pwd     # 현재 작업하는 폴더 위치 확인
-        $ ls -a   # package.json 파일이 보이는지 확인
-
         eslint 설정 방법에는 2가지가 있다.
             * npm init 을 사용하는 설정 방식(비추천)
             * npm install 을 사용하는 설정 방식(추천)
@@ -442,17 +438,9 @@
                                  eslint-config-airbnb  \
                                  babel-eslint
 
-        # .eslintrc.js 파일 생성
-        $ touch .eslintrc.js    # .eslintrc.js 파일 생성
-
-        # .eslintrc.js 파일 생성 후 아래의 내용 추가
-        $ echo -e "module.exports = {\n}" > .eslintrc.js
-
-        $ cat .eslintrc.js   # .eslintrc.js 파일 내용 확인
-
 
     4-5. eslint 설정
-        eslint는 linter이다. 오류를 잡을 떄 사용한다.
+        eslint는 linter이다. 오류를 잡을 때 사용한다.
 
 
         ESLint의 핵심 구성 정보는 env, globals, rules세가지 영역으로 나누어져 구성되어 있습니다.
@@ -478,6 +466,8 @@
         $ touch .eslintrc.js
         $ echo -e "module.exports = {\n}" > .eslintrc.js
         $ cat .eslintrc.js
+        module.exports = {
+        }
 
         # .eslintrc.js 파일에 아래 내용을 추가
         module.exports = {
